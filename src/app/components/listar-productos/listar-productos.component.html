@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-header">
+         <label class="form-label" for="">Productos</label>
+        <br>        
+        <app-agregar-productos>(respuesta)="refresh()"></app-agregar-productos>
+    </div>
+    <div class="card-body">       
+        <table class="table table-striped    table-responsive">
+            <thead class="thead-inverse|thead-default">
+                <tr>
+                    <th>ID </th>
+                    <th>NOMBRE </th>
+                    <th>MARCA</th>
+                    <th>PRECIO</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos ; let icontrol = index ">                   
+                    <td> {{producto.id}}</td>
+                    <td> {{producto.nombre}} </td>
+                    <td> {{producto.marca}} </td>
+                    <td> {{producto.precio}} </td>
+                    <td>                       
+                        <app-editar-productos [item] = "producto" (respuesta)="refresh()" > </app-editar-productos>
+                        <app-detalle-productos [item] = "producto"> </app-detalle-productos> 
+                         <input name="" id="" class="btn btn-danger" type="button" (click)="Eliminar(producto, icontrol)" value="Eliminar">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>

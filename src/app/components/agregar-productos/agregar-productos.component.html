@@ -1,0 +1,47 @@
+<button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modelId">
+    Agregar Producto
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header">
+                        Producto
+                    </div>
+                    <div class="card-body">
+                        <form ngNativeValidate [formGroup]="formularioProducto" (submit)="submit()">
+
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nombre</label>
+                                <input type="text" formControlName="nombre" id="nombre" class="form-control" required
+                                    placeholder="Nombre" aria-describedby="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Marca</label>
+                                <input type="text" formControlName="marca" id="marca" class="form-control"
+                                    required placeholder="Marca" aria-describedby="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Precio</label>
+                                <input type="number" formControlName="precio" id="precio" class="form-control"
+                                    required placeholder="Precio" aria-describedby="">
+                            </div>
+                                                 
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-success" [disabled]="formularioProducto.invalid">Guardar</button>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

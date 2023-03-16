@@ -1,0 +1,32 @@
+<button class="btn btn-success" (click)="open(content)">Editar</button>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Editar Producto</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form ngNativeValidate [formGroup]="formularioProducto" (submit)="submit()">
+
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" formControlName="nombre" id="nombre" class="form-control" required
+                    placeholder="Nombre" aria-describedby="">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Marca</label>
+                <input type="text" formControlName="marca" id="marca" class="form-control"
+                    required placeholder="Marca" aria-describedby="">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Precio</label>
+                <input type="Number" formControlName="precio" id="precio" class="form-control"
+                    required placeholder="Precio" aria-describedby="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="modal.close()" data-bs-dismiss="modal"> Cerrar</button>
+                <button type="submit" class="btn btn-success" [disabled]="formularioProducto.invalid">Editar</button>
+          </div>
+        </form>
+    </div>  
+  </ng-template>
